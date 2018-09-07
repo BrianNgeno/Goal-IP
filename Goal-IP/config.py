@@ -21,8 +21,8 @@ class DevConfig(Config):
 class TestConfig(Config):
     pass
 
-config_options ={
+config_options = { 
     'production':ProdConfig,
     'development' :DevConfig,
-    'test': TestConfig
+    'test':TestConfig
 }

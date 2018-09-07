@@ -5,7 +5,17 @@ from flask_script import Manager,Server
 app = create_app('test')
 
 manager = Manager(app)
-manager.add_command('serve',Server)
+manager.add_command('server',Server)
+
+@manager.command 
+def test():
+    '''
+    run the tests for the whole application
+    '''
+    import unittest 
+    test = unittest.TestLoader().discover('tests')
+    unittest.TextTestRunner(verbosity=2).run(tests)
+    
 
 def make_shell_context():
     return dict(app = app)
