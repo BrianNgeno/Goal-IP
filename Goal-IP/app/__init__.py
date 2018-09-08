@@ -9,7 +9,7 @@ def create_app(config_name):
 
     #creating the app configurations
     app.config.from_object(config_options[config_name])
-    config_options[config_name].init_app(app)
+    # config_options[config_name].init_app(app)
 
     #initializing the flask extensions
     bootstrap.init_app(app)
@@ -19,4 +19,4 @@ def create_app(config_name):
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
-   
+    return app

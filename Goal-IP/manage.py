@@ -2,7 +2,7 @@ from app import create_app
 from flask_script import Manager,Server
 
 #creating app instance
-app = create_app('test')
+app = create_app('development')
 
 manager = Manager(app)
 manager.add_command('server',Server)
@@ -13,9 +13,9 @@ def test():
     run the tests for the whole application
     '''
     import unittest 
-    test = unittest.TestLoader().discover('tests')
+    tests = unittest.TestLoader().discover('tests')
     unittest.TextTestRunner(verbosity=2).run(tests)
-    
+
 
 def make_shell_context():
     return dict(app = app)
