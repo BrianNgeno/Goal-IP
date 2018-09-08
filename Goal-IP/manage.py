@@ -18,10 +18,7 @@ def test():
     unittest.TextTestRunner(verbosity=2).run(tests)
 
 
-def make_shell_context():
-    return dict(app = app)
-
-@manage.shell
+@manager.shell
 def make_shell_context():
     return dict (app = app, db = db,User = User)
 
