@@ -13,6 +13,3 @@ def index():
     
     return render_template('index.html', title = title)
 
-@main.route('/movie/review/new/<int:id>', methods = ['GET','POST'])
-@login_required
-def new_review(id):
