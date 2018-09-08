@@ -16,6 +16,7 @@ def create_app(config_name):
 
     #initializing the flask extensions
     bootstrap.init_app(app)
+    db.init_app(app)
 
     #Registering the bluprint
 
