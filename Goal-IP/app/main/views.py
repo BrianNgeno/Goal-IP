@@ -1,6 +1,6 @@
 from flask import render_template,redirect
 from . import main
-
+from flask_login import login_required
 #views
 @main.route('/')
 def index():
@@ -12,3 +12,7 @@ def index():
     title = 'Home - Welcome to The Best Pitch Review Website Online'
     
     return render_template('index.html', title = title)
+
+@main.route('/movie/review/new/<int:id>', methods = ['GET','POST'])
+@login_required
+def new_review(id):
