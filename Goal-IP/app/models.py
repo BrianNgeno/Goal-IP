@@ -95,15 +95,25 @@ class Pitches(db.Model):
     category_id = db.Column(db.Integer, db.ForeignKey("pitch_categories.id"))
     comment = db.relationship("Comments", backref="pitches", lazy="dynamic")
     
+    def save_pitch(self):
+        '''
+        Function to save a pitch
+        '''
+        db.session.add(self)
+        db.session.commit()
 
-    @property
-    def password(self):
-        raise AttributeError('You cannot read the password attribute')
+    @classmethod
+    def clear_pitches(cls):
+        '''
+        Function that clears all the pitches in a particular category
+        '''
+        Pitches.all_pitches.clear()
 
-    @password.setter
-    def password(self, password):
-        self.pass_secure = generate_password_hash(password)
-
-    def verify_password(self, password):
-        return check_password_hash(self.pass_secure, password)
-
+    # display pitches
+    @classmethod
+    def get_pitches(cls, id):
+        '''
+        Function that gets a particular pitch when requested by date posted
+        '''
+        pitches = Pitches.query.order_by(Pitches.date_posted.desc()).filter_by(category_id=id).all()
+        return pitches
