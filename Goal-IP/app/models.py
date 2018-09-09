@@ -117,3 +117,16 @@ class Pitches(db.Model):
         '''
         pitches = Pitches.query.order_by(Pitches.date_posted.desc()).filter_by(category_id=id).all()
         return pitches
+
+class Comments(db.Model):
+    '''
+    Comment class that creates instances of Comments class that will be attached to a particular pi
+    '''
+    __tablename__ = 'comment'
+
+    # add columns
+    id = db.Column(db. Integer, primary_key=True)
+    comment_id = db.Column(db.String(255))
+    date_posted = db.Column(db.DateTime, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    pitches_id = db.Column(db.Integer, db.ForeignKey("pitches.id"))
