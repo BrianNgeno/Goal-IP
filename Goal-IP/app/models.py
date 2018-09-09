@@ -66,3 +66,11 @@ class PitchCategory(db.Model):
         db.session.add(self)
         db.session.commit()
 
+    @classmethod
+    def get_categories(cls):
+        '''
+        Function that returns all the data from the categories after being queried
+        '''
+        categories = PitchCategory.query.all()
+        return categories
+
