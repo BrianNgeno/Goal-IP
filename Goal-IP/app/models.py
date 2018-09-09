@@ -2,6 +2,7 @@ from . import db
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
 from . import login_manager
+from datetime import datetime
 
 class User(UserMixin,db.Model):
     __tablename__ = 'users'
@@ -77,7 +78,7 @@ class PitchCategory(db.Model):
 class Pitches(db.Model):
 
     """
-    Class that holds instances of all the pitches in the different categories
+    Class with instance of all the pitches in the different categories
     """
     all_pitches = []
 
@@ -89,4 +90,13 @@ class Pitches(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     category_id = db.Column(db.Integer, db.ForeignKey("pitch_categories.id"))
     comment = db.relationship("Comments", backref="pitches", lazy="dynamic")
-   
+    
+    @property
+    def password(self):
+        raise AttributeError('You cannot read the password attribute')
+
+    @password.setter
+    def password(self, password):
+        self.pass_secure = generate_password_hash(password)
+
+    
