@@ -74,3 +74,4 @@ class PitchCategory(db.Model):
         categories = PitchCategory.query.all()
         return categories
 
+    

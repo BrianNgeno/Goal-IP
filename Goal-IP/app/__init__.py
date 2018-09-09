@@ -11,8 +11,6 @@ from flask_mail import Mail
 bootstrap = Bootstrap()
 db = SQLAlchemy()
 login_manager = LoginManager()
-login_manager.session_protection = 'strong'
-login_manager.login_view = 'auth.login'
 photos = UploadSet('photos',IMAGES)
 mail = Mail()
 
@@ -21,6 +19,9 @@ def create_app(config_name):
 
     #creating the app configurations
     app.config.from_object(config_options[config_name])
+    login_manager.session_protection = 'strong'
+    login_manager.login_view = 'auth.login'
+    
     # config_options[config_name].init_app(app)
 
     #initializing the flask extensions
@@ -34,6 +35,9 @@ def create_app(config_name):
 
 
     #Registering the bluprint
+    from .main import main as main_blueprint
+	app.register_blueprint(main_blueprint)
+
 
     from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint,url_prefix = '/authenticate')
