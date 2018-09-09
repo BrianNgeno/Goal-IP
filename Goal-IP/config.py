@@ -11,16 +11,15 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get("lukemark@gmail.com")
     MAIL_PASSWORD = os.environ.get("1234qwer,./")
+	# SENDER_EMAIL = 'lukemark@gmail.com'
 
-    @staticmethod
-    def init__app(app):
-        pass
  
 class ProdConfig(Config):
     '''
     child class production and takes in config from the parent
     '''
-    pass
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+
 
 class DevConfig(Config):
     DEBUG = True

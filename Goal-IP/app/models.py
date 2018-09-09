@@ -13,6 +13,10 @@ class User(UserMixin,db.Model):
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     password_secure = db.Column(db.String(255))
+    password_hash = db.Column(db.String(255))
+    pitches = db.relationship("Pitches", backref="user", lazy="dynamic")
+    comment = db.relationship("Comments", backref="user", lazy="dynamic")
+
 
 
     @property
@@ -43,4 +47,14 @@ class Role(db.Model):
 
     def __repr__(self):
         return f'User {self.name}'
+
+
+class PitchCategory(db.Model):
+    '''
+    Category class define category per pitch
+    '''
+    __tablename__ = 'pitch_categories'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255))
+    description = db.Column(db.String(255))
 
