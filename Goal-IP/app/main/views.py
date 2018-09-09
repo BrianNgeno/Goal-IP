@@ -2,7 +2,7 @@ from flask import render_template,redirect,url_for,abort
 from . import main
 from flask_login import login_required
 from ..models import User
-from .forms import ReviewForm,UpdateProfile
+from .forms import UpdateProfile , PitchForm
 from .. import db,photos
 
 #views
