@@ -58,3 +58,11 @@ class PitchCategory(db.Model):
     name = db.Column(db.String(255))
     description = db.Column(db.String(255))
 
+    # save pitches
+    def save_category(self):
+        '''
+        Function that saves a category
+        '''
+        db.session.add(self)
+        db.session.commit()
+
