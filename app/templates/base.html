@@ -4,10 +4,10 @@
 {% block navbar %}
     {% include 'navbar.html' %}
 {% endblock %}
-{% block cstyles %}
+{% block styles %}
   {{super()}}
-  Importing the simple mde css and js files 
-  {{simplemde.css}}
+  <!--Importing the simple mde css and js files  -->
+  {{ simplemde.css}}
   {{ simplemde.js }}
-
-{% endblock %} 
+  
+{% endblock %}
