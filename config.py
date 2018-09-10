@@ -9,10 +9,16 @@ class Config:
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
-    MAIL_USERNAME = os.environ.get("lukemark254@gmail.com")
-    MAIL_PASSWORD = os.environ.get("1234qwer,./")
-	# SENDER_EMAIL = 'lukemark254@gmail.com'
-    SECRET_KEY=os.environ.get('SECRET_KEY') 
+    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+    SECRET_KEY= os.environ.get('SECRET_KEY') 
+	 # simple mde  configurations
+    SIMPLEMDE_JS_IIFE = True
+    SIMPLEMDE_USE_CDN = True
+
+    @staticmethod
+    def init_app(app):
+        pass
 
  
 class ProdConfig(Config):
