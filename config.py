@@ -9,9 +9,10 @@ class Config:
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
-    MAIL_USERNAME = os.environ.get("lukemark@gmail.com")
+    MAIL_USERNAME = os.environ.get("lukemark254@gmail.com")
     MAIL_PASSWORD = os.environ.get("1234qwer,./")
-	# SENDER_EMAIL = 'lukemark@gmail.com'
+	# SENDER_EMAIL = 'lukemark254@gmail.com'
+    SECRET_KEY=os.environ.get('SECRET_KEY') 
 
  
 class ProdConfig(Config):
