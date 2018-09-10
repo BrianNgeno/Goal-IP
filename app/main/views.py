@@ -1,8 +1,8 @@
 from flask import render_template,redirect,url_for,abort
 from . import main
 from flask_login import login_required
-from ..models import User
-from .forms import UpdateProfile , PitchForm, CategoriesForm
+from ..models import User, PitchCategory
+from .forms import UpdateProfile , PitchForm, CategoriesForm, CommentForm
 from .. import db,photos
 
 #views
