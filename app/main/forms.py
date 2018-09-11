@@ -10,11 +10,9 @@ class UpdateProfile(FlaskForm):
 
 class PitchForm(FlaskForm):
     content = TextAreaField('Your pitch')
+    category = TextAreaField('Category')
     submit = SubmitField('Submit')
 
-class CategoriesForm(FlaskForm):
-	name = TextAreaField('Add Category')
-	submit = SubmitField('Submit')
 
 class CommentForm(FlaskForm):
     comment_id = TextAreaField('Write comment')

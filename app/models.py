@@ -50,32 +50,32 @@ class Role(db.Model):
         return f'User {self.name}'
 
 
-class PitchCategory(db.Model):
-    '''
-    Category class define category per pitch
-    '''
-    __tablename__ = 'pitch_categories'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255))
-    description = db.Column(db.String(255))
+# class PitchCategory(db.Model):
+#     '''
+#     Category class define category per pitch
+#     '''
+#     __tablename__ = 'pitch_categories'
+#     id = db.Column(db.Integer, primary_key=True)
+#     name = db.Column(db.String(255))
+#     description = db.Column(db.String(255))
 
 
-    # save pitches
-    def save_category(self):
-        '''
-        Function that saves a category
-        '''
-        db.session.add(self)
-        db.session.commit()
+#     # save pitches
+#     def save_category(self):
+#         '''
+#         Function that saves a category
+#         '''
+#         db.session.add(self)
+#         db.session.commit()
 
-    #get pitch category
-    @classmethod
-    def get_categories(cls):
-        '''
-        Function that returns all the data from the categories after being queried
-        '''
-        categories = PitchCategory.query.all()
-        return categories
+#     #get pitch category
+#     @classmethod
+#     def get_categories(cls):
+#         '''
+#         Function that returns all the data from the categories after being queried
+#         '''
+#         categories = PitchCategory.query.all()
+#         return categories
 
 
 
@@ -92,7 +92,7 @@ class Pitches(db.Model):
     actual_pitch = db.Column(db.String)
     date_posted = db.Column(db.DateTime, default=datetime.now)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    category_id = db.Column(db.Integer, db.ForeignKey("pitch_categories.id"))
+    category = db.Column(db.String)
     comment = db.relationship("Comments", backref="pitches", lazy="dynamic")
     upvote = db.Column(db.Integer)
     downvote = db.Column(db.Integer)

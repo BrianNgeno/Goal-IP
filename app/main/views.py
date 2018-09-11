@@ -1,8 +1,8 @@
 from flask import render_template,redirect,url_for,abort
 from . import main
 from flask_login import login_required
-from ..models import User, PitchCategory
-from .forms import UpdateProfile , PitchForm, CategoriesForm, CommentForm
+from ..models import User, Pitches
+from .forms import UpdateProfile , PitchForm, CommentForm
 from .. import db,photos
 
 #views
@@ -16,57 +16,18 @@ def index():
     title = 'Home - Welcome to The Best Pitch Review Website Online'
     
     return render_template('index.html', title = title)
-# Route for adding a new pitch
-
-@main.route('/category/pitch/new/<int:id>', methods=['GET', 'POST'])
-@login_required
-def new_pitch(id):
-    '''
-    Function to check Pitches form
-    '''
-    form = PitchForm()
-    category = PitchCategory.query.filter_by(id=id).first()
-
-    if category is None:
-        abort(404)
-
-    if form.validate_on_submit():
-        actual_pitch = form.content.data
-        new_pitch = Pitches(actual_pitch=actual_pitch,
-                            user_id=current_user.id, category_id=category.id)
-        new_pitch.save_pitch()
-        return redirect(url_for('.category', id=category.id))
-
-    return render_template('new_pitch.html', pitch_form=form, category=category)
 
 # Routes for displaying the different pitches
-@main.route('/category/new',methods=['GET','POST'])
+@main.route('/pitch/new',methods=['GET','POST'])
 @login_required
-def new_category():
-	form = CategoriesForm()
-	if form.validate_on_submit():
-		name = form.name.data
-		new_category = PitchCategory(name=name)
-		new_category.save_category()
-		return redirect(url_for('.new_category'))
-	title = 'New Pitch Category'
-	return render_template('new_category.html',categories_form=form)
-    
-    # route to display different pitches in every category
-@main.route('/category/<int:id>')
-def category(id):
-    '''
-    category route function returns a list of pitches in the category chosen
-    '''
-
-    category = PitchCategory.query.get(id)
-    if category is None:
-        abort(404)
-
-    pitches = Pitches.get_pitches(id)
-    return render_template('category.html', category=category, pitches=pitches)
-
-
+def new_pitch():
+    form = PitchForm()
+    if form.validate_on_submit():
+        actual_pitch = form.content.data
+        new_pitch = Pitches(actual_pitch=actual_pitch)
+        new_pitch.save_pitch()
+        return redirect(url_for('.index'))
+    return render_template('pitch.html',form = form)
 
 @main.route('/user/<uname>')
 def profile(uname):
