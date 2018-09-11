@@ -1,7 +1,7 @@
 from flask import render_template,redirect,url_for,abort,request
 from . import main
 from flask_login import login_required,current_user
-from ..models import User, Pitches
+from ..models import User, Pitches,Comments
 from .forms import UpdateProfile , PitchForm, CommentForm
 from .. import db,photos
 
@@ -45,11 +45,15 @@ def view_pitch():
 def new_comment(id):
     form = CommentForm()
     if form.validate_on_submit():
-        new_comment = Comment(form.comment_id.data,user=current_user,pitch_id=id)
-        db.session.add(new_comment)
+        new_comment = Comments(comment_name = form.comment_name.data,user=current_user, pitches_id =id)
         db.session.commit()
         return redirect(url_for('.index'))
     return render_template('pitch.html',form = form)
+
+@main.route('/pitch/new/comment/<int:id>/view')
+def view_comment(id):
+    comment = Comments.query.filter_by(pitches_id= id)
+    return render_template('comment.html',comment = comment)
 
 @main.route('/user/<uname>/update',methods = ['GET','POST'])
 @login_required

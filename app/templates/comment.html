@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
- {% import 'bootstrap/wtf.html' as wtf %}
-  {%block styles%}
-   {{ super() }}
-{%endblock%}
-
 {% block content %}
-<div class="container">
-  {{wtf.quick_form(comment_form)}}
+{% for comment in comment %}
+<div class="jumbotron col-md-8">
+  <p>{{comment.user}}</p>
+  <P>{{comment.comment_name}}</P>
+  <p>{{comment.date_posted}}</p>
+  <p>Pitch-Id: {{comment.pitches_id}}</p>
+ 
 </div>
+{% endfor %}
 {% endblock %}
