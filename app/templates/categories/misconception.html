@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+{% block content %}
+{% for five in five%}
+
+<!-- view function for misc category -->
+
+<div class="well col-md-4">
+<p>{{five.category}}</p>
+<p>{{five.actual_pitch}}</p>
+<p>{{five.date_posted}}</p>
+</div>
+{% endfor %}
+{% endblock %}

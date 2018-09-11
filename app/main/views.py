@@ -104,27 +104,27 @@ def profile(uname):
 
 @main.route('/category/technology')
 def view_technology():
-    one = Pitches.query.filter_by(cartegory ='technology')
-    return render_template("category/technology.html",one = one)
+    one = Pitches.query.filter_by(category ='technology')
+    return render_template("categories/technology.html",one = one)
     
 @main.route('/category/disses')
 def view_disses():
-    two = Pitches.query.filter_by(cartegory ='disses')
-    return render_template("category/disses.html",two = two)
+    two = Pitches.query.filter_by(category ='disses')
+    return render_template("categories/disses.html",two = two)
 
 @main.route('/category/jokes')
 def view_jokes():
-    three = Pitches.query.filter_by(cartegory ='jokes')
-    return render_template("category/jokes.html",three = three)
+    three = Pitches.query.filter_by(category ='jokes')
+    return render_template("categories/jokes.html",three = three)
 
 
 @main.route('/category/funny')
 def view_funny():
-    four = Pitches.query.filter_by(cartegory ='funny')
-    return render_template("category/funny.html",four = four)
+    four = Pitches.query.filter_by(category ='funny')
+    return render_template("categories/funny.html",four = four)
 
 
 @main.route('/category/misconception')
 def view_misconception():
-    five = Pitches.query.filter_by(cartegory ='misconception')
-    return render_template("category/misconception.html",five = five)
+    five = Pitches.query.filter_by(category ='misconception')
+    return render_template("categories/misconception.html",five = five)

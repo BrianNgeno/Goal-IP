@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+{% block content %}
+{% for three in three%}
+
+<!-- view function for category -->
+
+<div class="well col-md-4">
+<p>{{three.category}}</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+<p>{{three.actual_pitch}}</p>
+<p>{{three.date_posted}}</p>
+</div>
+{% endfor %}
+{% endblock %}
