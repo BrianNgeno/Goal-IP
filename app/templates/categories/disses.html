@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+{% block content %}
+{% for one in one%}
+'''
+view function for disses category
+'''
+<div class="well col-md-4">
+<p>{{one.category}}</p>
+<p>{{one.actual_pitch}}</p>
+<p>{{one.date_posted}}</p>
+</div>
+{% endfor %}
+{% endblock %}
