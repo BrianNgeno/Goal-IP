@@ -1,6 +1,6 @@
-from flask import render_template,redirect,url_for,abort
+from flask import render_template,redirect,url_for,abort,request
 from . import main
-from flask_login import login_required
+from flask_login import login_required,current_user
 from ..models import User, Pitches
 from .forms import UpdateProfile , PitchForm, CommentForm
 from .. import db,photos
@@ -24,19 +24,32 @@ def new_pitch():
     form = PitchForm()
     if form.validate_on_submit():
         actual_pitch = form.content.data
-        new_pitch = Pitches(actual_pitch=actual_pitch)
+        new_pitch = Pitches(actual_pitch=actual_pitch,category = form.category.data,user=current_user)
         new_pitch.save_pitch()
         return redirect(url_for('.index'))
     return render_template('pitch.html',form = form)
 
-@main.route('/user/<uname>')
-def profile(uname):
-    user = User.query.filter_by(username = uname).first()
+@main.route('/pitch/new/view')
+def view_pitch():
+    pitch = Pitches.query.filter_by(category='technology')
+    pitchone = Pitches.query.filter_by(category='misconception')
+    pitchtwo = Pitches.query.filter_by(category='disses')
+    pitchthree = Pitches.query.filter_by(category='commit_line')
+     
 
-    if user is None:
-        abort(404)
+    return render_template('index.html',pitch = pitch,pitchone=pitchone, pitchtwo=pitchtwo, pitchthree=pitchthree)
 
-    return render_template("profile/profile.html", user = user)
+
+@main.route('/pitch/new/comment/<int:id>',methods = ['GET','POST'])
+@login_required
+def new_comment(id):
+    form = CommentForm()
+    if form.validate_on_submit():
+        new_comment = Comment(form.comment_id.data,user=current_user,pitch_id=id)
+        db.session.add(new_comment)
+        db.session.commit()
+        return redirect(url_for('.index'))
+    return render_template('pitch.html',form = form)
 
 @main.route('/user/<uname>/update',methods = ['GET','POST'])
 @login_required
@@ -67,3 +80,11 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
+
+@main.route('/user/<uname>')
+def profile(uname):
+    user = User.query.filter_by(username = uname).first()
+    if user is None:
+        abort(404)
+
+    return render_template("profile/profile.html",user=user)
