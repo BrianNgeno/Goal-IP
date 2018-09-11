@@ -13,4 +13,10 @@ html {
     background-color: black;
     color: white;
     opacity: 0.9px;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    list-style: none;
+    text-align: center;
 }
