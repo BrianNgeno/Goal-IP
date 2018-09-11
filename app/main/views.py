@@ -101,3 +101,14 @@ def profile(uname):
         abort(404)
 
     return render_template("profile/profile.html",user=user)
+
+@main.route('/pitch/technology')
+def view_technology():
+    pitch = Pitches.query.filter_by(cartegory ='technology')
+    return render_template("category/technology.html",technology=technology)
+
+# @main.route('/pitch/disses)
+# def view_technology():
+#     pitch = Pitches.query.filter_by(cartegory ='technology')
+#     return render_template("category/technology.html",pitch = pitch)
+
