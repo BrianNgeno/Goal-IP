@@ -6,4 +6,11 @@
 html {
     font-family: Architects Daughter;
     font-size: 20px;
+    background-image: url('../static/background.jpg') 
+}
+
+.jumbotron{
+    background-color: black;
+    color: white;
+    opacity: 0.9px;
 }

@@ -6,7 +6,7 @@
 {% block content %}
 
 {% for pitch in pitch %}
-<div class="jumbotron">
+<div class="jumbotron col-md-4">
   <li>{{pitch.actual_pitch}}</li>
    <p>{{pitch.category}}</p>
    <p>{{pitch.date_posted}}</p>
@@ -15,7 +15,7 @@
 {% endfor %}
 
 {% for pitchone in pitchone %}
-<div class="jumbotron">
+<div class="jumbotron col-md-4" >
   <li>{{pitchone.actual_pitch}}</li>
    <p>{{pitchone.category}}</p>
    <p>{{pitchone.date_posted}}</p>
@@ -24,7 +24,7 @@
 {% endfor %}
 
 {% for pitchtwo in pitchtwo %}
-<div class="jumbotron">
+<div class="jumbotron col-md-4">
   <li>{{pitchtwo.actual_pitch}}</li>
    <p>{{pitchtwo.category}}</p>
    <p>{{pitchtwo.date_posted}}</p>
@@ -33,7 +33,7 @@
 {% endfor %}
 
 {% for pitchthree in pitchthree %}
-<div class="jumbotron">
+<div class="jumbotron col-md-4">
   <li>{{pitchthree.actual_pitch}}</li>
    <p>{{pitchthree.category}}</p>
    <p>{{pitchthree.date_posted}}</p>
