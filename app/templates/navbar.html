@@ -1,17 +1,32 @@
 {% block styles %}
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   {% endblock %}
               <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top" >
                   <a class="navbar-brand" href="/pitch/new" ><button class="btn btn-outline-secondary btn-sm" >Add Pitch</a></button>
-                  <a href="/"><button class="btn btn-outline-secondary btn-sm" >HOME</a></button>
-                  <a href="{{url_for('main.profile',uname=current_user.username)}}"><a href="/"><button class="btn btn-outline-secondary btn-sm" >PROFILE</a></button>
-                  <a href="{{url_for('auth.logout')}}"><button class="btn btn-outline-secondary btn-sm" >SIGN OUT</a></button>
+                  <a class="navbar-brand" href="/"><button class="btn btn-outline-secondary btn-sm" >HOME</a></button>
+                  <a class="navbar-brand" href="{{url_for('main.profile',uname=current_user.username)}}">
+                    <a class="navbar-brand" href="/"><button class="btn btn-outline-secondary btn-sm" >PROFILE</a></button>
+                  <a class="navbar-brand" href="{{url_for('auth.logout')}}"><button class="btn btn-outline-secondary btn-sm" >SIGN OUT</a></button>
                   <!-- <a href="/"><button class="btn btn-outline-secondary btn-sm" >HOME</a></button> -->
-                  <a href="{{url_for('auth.login')}}"><button class="btn btn-outline-secondary btn-sm" >SIGN IN</a></button>
+                  <a class="navbar-brand" href="{{url_for('auth.login')}}"><button class="btn btn-outline-secondary btn-sm" >SIGN IN</a></button>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" class="navbar-brand" href="#" id="navbardrop" data-toggle="dropdown">
+                          Categories
+                      </a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Funny</a>
+                        <a class="dropdown-item" href="#">Jokes</a>
+                        <a class="dropdown-item" href="#">Technology</a>
+                        <a class="dropdown-item" href="#">Disses</a>
+                        <a class="dropdown-item" href="#">Misconception</a>
+                      </div>
+                    </li>
+                  </ul>
               </nav>
  
    

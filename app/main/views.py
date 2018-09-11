@@ -14,8 +14,14 @@ def index():
     '''
 
     title = 'Home - Welcome to The Best Pitch Review Website Online'
+    pitch = Pitches.query.filter_by(category='technology')
+    pitchone = Pitches.query.filter_by(category='misconception')
+    pitchtwo = Pitches.query.filter_by(category='disses')
+    pitchthree = Pitches.query.filter_by(category='commit_line')
+    pitchfour = Pitches.query.filter_by(category='funny')
+    pitchfive = Pitches.query.filter_by(category='jokes')
     
-    return render_template('index.html', title = title)
+    return render_template('index.html', title = title, pitch = pitch,pitchone=pitchone, pitchtwo=pitchtwo, pitchthree=pitchthree, pitchfour=pitchfour, pitchfive=pitchfive)
 
 # Routes for displaying the different pitches
 @main.route('/pitch/new',methods=['GET','POST'])
@@ -26,7 +32,7 @@ def new_pitch():
         actual_pitch = form.content.data
         new_pitch = Pitches(actual_pitch=actual_pitch,category = form.category.data,user=current_user)
         new_pitch.save_pitch()
-        return redirect(url_for('.index'))
+        return redirect(url_for('main.view_pitch'))
     return render_template('pitch.html',form = form)
 
 @main.route('/pitch/new/view')
@@ -35,9 +41,12 @@ def view_pitch():
     pitchone = Pitches.query.filter_by(category='misconception')
     pitchtwo = Pitches.query.filter_by(category='disses')
     pitchthree = Pitches.query.filter_by(category='commit_line')
+    pitchfour = Pitches.query.filter_by(category='funny')
+    pitchfive = Pitches.query.filter_by(category='jokes')
+    
      
 
-    return render_template('index.html',pitch = pitch,pitchone=pitchone, pitchtwo=pitchtwo, pitchthree=pitchthree)
+    return render_template('index.html',pitch = pitch,pitchone=pitchone, pitchtwo=pitchtwo, pitchthree=pitchthree, pitchfour=pitchfour, pitchfive=pitchfive)
 
 
 @main.route('/pitch/new/comment/<int:id>',methods = ['GET','POST'])

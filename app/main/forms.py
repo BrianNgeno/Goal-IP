@@ -10,7 +10,7 @@ class UpdateProfile(FlaskForm):
 
 class PitchForm(FlaskForm):
     content = TextAreaField('Your pitch')
-    category = SelectField('Category'choices=[('disses','disses'),('technology','technology'),('commit_line','commit_line'),('funny','funny'),('jokes','jokes')])
+    category = SelectField('Category',choices=[('disses','disses'),('technology','technology'),('commit_line','commit_line'),('funny','funny'),('jokes','jokes')])
     submit = SubmitField('Submit')
 
 

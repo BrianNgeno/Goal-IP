@@ -46,4 +46,22 @@
 </div>
 {% endfor %}
 
+{% for pitchfour in pitchfour %}
+<div class="jumbotron col-md-4">
+  <li>{{pitchfour.actual_pitch}}</li>
+   <p>{{pitchfour.category}}</p>
+   <p>{{pitchfour.date_posted}}</p>
+   <a href="/pitch/new/comment/{{pitchfour.id}}"><button class="btn btn-outline-secondary btn-lg" >Add Comment</a></button>
+</div>
+{% endfor %}
+
+{% for pitchfive in pitchfive %}
+<div class="jumbotron col-md-4">
+  <li>{{pitchfive.actual_pitch}}</li>
+   <p>{{pitchfive.category}}</p>
+   <p>{{pitchfive.date_posted}}</p>
+   <a href="/pitch/new/comment/{{pitchfive.id}}"><button class="btn btn-outline-secondary btn-lg" >Add Comment</a></button>
+</div>
+{% endfor %}
+
 {% endblock %}
