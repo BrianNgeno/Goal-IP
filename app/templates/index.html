@@ -8,61 +8,75 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   {% endblock %}
-<div class="container-fluid" background ='../static/background.jpg'>
+<div class="container-fluid">
+  <div class="njeff">
 {% block content %}
 
 {% for pitch in pitch %}
-<div class="jumbotron col-md-4">
+<div class="jumbotron col-md-3">
   <li>{{pitch.actual_pitch}}</li>
    <p>{{pitch.category}}</p>
    <p>{{pitch.date_posted}}</p>
-   <a href="/pitch/new/comment/{{pitch.id}}"> <button class="btn btn-outline-secondary btn-lg" >Add Comment</a></button>
+   <a href="/pitch/new/comment/{{pitch.id}}/view"><button class="btn btn-outline-secondary btn-sm" style="background-color:white;" >view comments</a></button>
+   <hr>
+   <a href="/pitch/new/comment/{{pitch.id}}"> <button class="btn btn-outline-secondary btn-sm"  style="background-color:white;">Add Comment</a></button>
 </div>
 {% endfor %}
 
 {% for pitchone in pitchone %}
-<div class="jumbotron col-md-4" >
+<div class="jumbotron col-md-3" >
   <li>{{pitchone.actual_pitch}}</li>
    <p>{{pitchone.category}}</p>
    <p>{{pitchone.date_posted}}</p>
-   <a href="/pitch/new/comment/{{pitchone.id}}"><button class="btn btn-outline-secondary btn-lg" >Add Comment</a></button>
+   <a href="/pitch/new/comment/{{pitch.id}}/view"><button class="btn btn-outline-secondary btn-sm" style="background-color:white;">view comments</a></button>
+   <hr>
+   <a href="/pitch/new/comment/{{pitchone.id}}"><button class="btn btn-outline-secondary btn-sm" style="background-color:white;" >Add Comment</a></button>
 </div>
 {% endfor %}
 
 {% for pitchtwo in pitchtwo %}
-<div class="jumbotron col-md-4">
+<div class="jumbotron col-md-3">
   <li>{{pitchtwo.actual_pitch}}</li>
    <p>{{pitchtwo.category}}</p>
    <p>{{pitchtwo.date_posted}}</p>
-   <a href="/pitch/new/comment/{{pitchtwo.id}}"><button class="btn btn-outline-secondary btn-lg" >Add Comment</a></button>
+   <a href="/pitch/new/comment/{{pitch.id}}/view"><button class="btn btn-outline-secondary btn-sm" style="background-color:white;" >view comments</a></button>
+   <hr>
+   <a href="/pitch/new/comment/{{pitchtwo.id}}"><button class="btn btn-outline-secondary btn-sm" style="background-color:white;" >Add Comment</a></button>
 </div>
 {% endfor %}
 
 {% for pitchthree in pitchthree %}
-<div class="jumbotron col-md-4">
+<div class="jumbotron col-md-3">
   <li>{{pitchthree.actual_pitch}}</li>
    <p>{{pitchthree.category}}</p>
    <p>{{pitchthree.date_posted}}</p>
-   <a href="/pitch/new/comment/{{pitchthree.id}}"><button class="btn btn-outline-secondary btn-lg" >Add Comment</a></button>
+   <a href="/pitch/new/comment/{{pitch.id}}/view"><button class="btn btn-outline-secondary btn-sm" style="background-color:white;" >view comments</a></button>
+   <hr>
+   <a href="/pitch/new/comment/{{pitchthree.id}}"><button class="btn btn-outline-secondary btn-sm" style="background-color:white;" >Add Comment</a></button>
 </div>
 {% endfor %}
 
 {% for pitchfour in pitchfour %}
-<div class="jumbotron col-md-4">
+<div class="jumbotron col-md-3">
   <li>{{pitchfour.actual_pitch}}</li>
    <p>{{pitchfour.category}}</p>
    <p>{{pitchfour.date_posted}}</p>
-   <a href="/pitch/new/comment/{{pitchfour.id}}"><button class="btn btn-outline-secondary btn-lg" >Add Comment</a></button>
+   <a href="/pitch/new/comment/{{pitch.id}}/view"><button class="btn btn-outline-secondary btn-sm" style="background-color:white;" >view comments</a></button>
+   <hr>
+   <a href="/pitch/new/comment/{{pitchfour.id}}"><button class="btn btn-outline-secondary btn-sm" style="background-color:white;" >Add Comment</a></button>
 </div>
 {% endfor %}
 
 {% for pitchfive in pitchfive %}
-<div class="jumbotron col-md-4">
+<div class="jumbotron col-md-3">
   <li>{{pitchfive.actual_pitch}}</li>
    <p>{{pitchfive.category}}</p>
    <p>{{pitchfive.date_posted}}</p>
-   <a href="/pitch/new/comment/{{pitchfive.id}}"><button class="btn btn-outline-secondary btn-lg" >Add Comment</a></button>
+   <a href="/pitch/new/comment/{{pitch.id}}/view"><button class="btn btn-outline-secondary btn-sm" style="background-color:white;">view comments</a></button>
+   <hr>
+   <a href="/pitch/new/comment/{{pitchfive.id}}"><button class="btn btn-outline-secondary btn-sm" style="background-color:white;" >Add Comment</a></button>
 </div>
 {% endfor %}
+</div>
 </div> 
 {% endblock %}

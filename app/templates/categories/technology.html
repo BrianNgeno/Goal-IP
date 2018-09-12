@@ -4,14 +4,16 @@
 
 <!-- view function for tech category -->
 
-<div class="well col-md-4">
+<div class="jumbotron col-md-4">
 <p>{{one.category}}</p>
 <p>{{one.actual_pitch}}</p>
 <p>{{one.date_posted}}</p>
-{% endfor %}
 {% for pitch in pitch %}
 <a href="/pitch/new/comment/{{pitch.id}}"> <button class="btn btn-outline-secondary btn-lg" >Add Comment</a></button>
 
 {% endfor %}
 </div>
+{% endfor %}
+
+
 {% endblock %}

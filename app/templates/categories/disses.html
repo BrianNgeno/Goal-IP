@@ -4,14 +4,12 @@
 
 <!-- view function for disses category -->
 
-<div class="well col-md-4">
+<div class="jumbotron col-md-4">
 <p>{{two.category}}</p>
 <p>{{two.actual_pitch}}</p>
 <p>{{two.date_posted}}</p>
-{% endfor %}
-{% for pitchtwo in pitchtwo %}
-<a href="/pitch/new/comment/{{pitchtwo.id}}"> <button class="btn btn-outline-secondary btn-lg" >Add Comment</a></button>
 
-{% endfor %}
+
 </div>
+{% endfor %}
 {% endblock %}

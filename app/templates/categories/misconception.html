@@ -4,13 +4,13 @@
 
 <!-- view function for misc category -->
 
-<div class="well col-md-4">
+<div class="jumbotron col-md-4">
 <p>{{five.category}}</p>
 <p>{{five.actual_pitch}}</p>
 <p>{{five.date_posted}}</p>
 {% endfor %}
 {% for pitchone in pitchone%}
-<a href="/pitch/new/comment/{{pitchone.id}}"> <button class="btn btn-outline-secondary btn-lg" >Add Comment</a></button>
+<!-- <a href="/pitch/new/comment/{{pitchone.id}}"> <button class="btn btn-outline-secondary btn-lg" >Add Comment</a></button> -->
 
 {% endfor %}
 </div>

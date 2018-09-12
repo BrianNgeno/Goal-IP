@@ -3,21 +3,21 @@
     font-size: 20px;
 }
 
-html {
+body {
     font-family: Architects Daughter;
     font-size: 20px;
-    background-image: url('../static/background.jpg');
+    background-image: url('../background.jpg');
     background-attachment: fixed;
 }
 
 .jumbotron{
-    /* background-color: black; */
-    color: black;
-    opacity: 0.9px;
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    list-style: none;
-    text-align: center;
+    background-color:rgba(33, 34, 34, 0.5) !important;
+    color: white !important ;
+    opacity: 0.9px !important;
+    margin-right: 5px !important;
+    margin-left: 5px !important;
+    margin-bottom: 5px !important;
+    margin-top: 5px !important;
+    list-style: none !important;
+    text-align: center !important;
 }
