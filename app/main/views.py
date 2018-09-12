@@ -128,3 +128,8 @@ def view_funny():
 def view_misconception():
     five = Pitches.query.filter_by(category ='misconception')
     return render_template("categories/misconception.html",five = five)
+
+# @main.route('/pitch/new/comment/1/view')
+# def view_comment(id):
+#     comment = Comments.query.filter_by(pitches_id= id)
+#     return render_template('comment.html',comment = comment)
