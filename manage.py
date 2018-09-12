@@ -4,7 +4,8 @@ from app.models import User, Role, Pitches, Comments
 from  flask_migrate import Migrate, MigrateCommand
 
 # creating app instance
-app = create_app('production')
+
+app = create_app('development')
 
 manager = Manager(app)
 manager.add_command('server',Server)
@@ -17,6 +18,7 @@ def test():
     '''
     run the tests for the whole application
     '''
+
     import unittest 
     tests = unittest.TestLoader().discover('tests')
     unittest.TextTestRunner(verbosity=2).run(tests)
@@ -24,7 +26,7 @@ def test():
 
 @manager.shell
 def make_shell_context():
-    return dict(app = app,db = db,User = User, Role = Role, PitchCategory = PitchCategory, Pitches = Pitches, Comments = Comments)
+    return dict(app = app,db = db,User = User, Role = Role, Pitches = Pitches, Comments = Comments)
     pass
 
 
