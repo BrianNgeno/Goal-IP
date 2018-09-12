@@ -8,7 +8,10 @@
 <p>{{two.category}}</p>
 <p>{{two.actual_pitch}}</p>
 <p>{{two.date_posted}}</p>
-<a href="/pitch/new/comment/{{pitchtwo.id}}"> <button class="btn btn-outline-secondary btn-lg" >Add Comment</a></button>
-</div>
 {% endfor %}
+{% for pitchtwo in pitchtwo %}
+<a href="/pitch/new/comment/{{pitchtwo.id}}"> <button class="btn btn-outline-secondary btn-lg" >Add Comment</a></button>
+
+{% endfor %}
+</div>
 {% endblock %}
