@@ -28,15 +28,15 @@ class ProdConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
 
-class DevConfig(Config):
-    DEBUG = True
+# class DevConfig(Config):
+#     DEBUG = True
 
-# defining our config options
-class TestConfig(Config):
-    pass
+# # defining our config options
+# class TestConfig(Config):
+#     pass
 
 config_options = { 
     'production':ProdConfig,
-    'development' :DevConfig,
-    'test':TestConfig
+    # 'development' :DevConfig,
+    # 'test':TestConfig
 }
