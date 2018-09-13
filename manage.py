@@ -5,7 +5,7 @@ from  flask_migrate import Migrate, MigrateCommand
 
 # creating app instance
 
-app = create_app('development')
+app = create_app('production')
 # app = create_app('development')
 
 manager = Manager(app)
@@ -19,6 +19,7 @@ def test():
     '''
     run the tests for the whole application
     '''
+    
 
     import unittest 
     tests = unittest.TestLoader().discover('tests')
