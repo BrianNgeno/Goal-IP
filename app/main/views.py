@@ -82,7 +82,6 @@ def update_profile(uname):
         return redirect(url_for('.profile',uname=user.username))
 
     return render_template('profile/update.html',form =form)
-
 @main.route('/user/<uname>/update/pic',methods= ['POST'])
 @login_required
 def update_pic(uname):
@@ -93,14 +92,14 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
-
 @main.route('/user/<uname>')
 def profile(uname):
+    form = CommentForm()
     user = User.query.filter_by(username = uname).first()
     if user is None:
         abort(404)
 
-    return render_template("profile/profile.html",user=user)
+    return render_template("profile/profile.html",user=user,form=form)
 
 @main.route('/category/technology')
 def view_technology():

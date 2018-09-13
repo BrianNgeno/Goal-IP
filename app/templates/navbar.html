@@ -10,8 +10,7 @@
                   <a class="navbar-brand" href="/pitch/new" ><button class="btn btn-outline-secondary btn-sm" >Add Pitch</a></button>
                   <a class="navbar-brand" href="/"><button class="btn btn-outline-secondary btn-sm" >HOME</a></button>
                   {% if current_user.is_authenticated %}
-                  <a class="navbar-brand" href="{{url_for('main.profile',uname=current_user.username)}}">
-                    <a class="navbar-brand" href="/"><button class="btn btn-outline-secondary btn-sm" >{{current_user.username}}</a></button>
+                  <button class="btn btn-outline-secondary btn-sm" ><a class="navbar-brand" href="{{url_for('main.profile',uname=current_user.username)}}">{{current_user.username}}</a></button>
                   <a class="navbar-brand" href="{{url_for('auth.logout')}}"><button class="btn btn-outline-secondary btn-sm" >SIGN OUT</a></button>
                   {% else %}
                   <a class="navbar-brand" href="{{url_for('auth.login')}}"><button class="btn btn-outline-secondary btn-sm" >SIGN IN</a></button>
