@@ -3,6 +3,7 @@
 {% for comment in comment %}
 <div class="jumbotron col-md-8">
   <p>{{comment.user}}</p>
+  <img src="comment.profile_pic_path">
   <P>{{comment.comment_name}}</P>
   <p>{{comment.date_posted}}</p>
   <p>Pitch-Id: {{comment.pitches_id}}</p>
