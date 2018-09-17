@@ -38,17 +38,6 @@ class User(UserMixin,db.Model):
     def load_user(user_id):
         return User.query.get(int(user_id))
 
-class Role(db.Model):
-    __tablename__ = 'roles'
-
-    id = db.Column(db.Integer,primary_key = True)
-    name = db.Column(db.String(255))
-    users = db.relationship('User',backref = 'role',lazy="dynamic")
-
-
-    def __repr__(self):
-        return f'User {self.name}'
-
 
 class Pitches(db.Model):
 
@@ -115,3 +104,14 @@ class Comments(db.Model):
     def get_comments(self, id):
         comment = Comments.query.order_by(Comments.date_posted.desc()).filter_by(pitches_id=id).all()
         return comment
+
+class Role(db.Model):
+    __tablename__ = 'roles'
+
+    id = db.Column(db.Integer,primary_key = True)
+    name = db.Column(db.String(255))
+    users = db.relationship('User',backref = 'role',lazy="dynamic")
+
+
+    def __repr__(self):
+        return f'User {self.name}'
